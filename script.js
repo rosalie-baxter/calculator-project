@@ -18,11 +18,11 @@ keys.addEventListener("click", e => {
     }
   } if (
     action ==="add" ||
-    action ===- "subtract" ||
+    action === "subtract" ||
     action === "multiply" ||
     action === "divide"
   ) {
-    key.classList.add("is-depressed")
+  key.classList.add("is-depressed")
   } if (action==="clear") {
     console.log("clear!")
   }  if (action==="delete") {
