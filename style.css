@@ -10,16 +10,20 @@ body {
   background: linear-gradient(to right, #00AAFF, #00ff6c)
 }
 
-.calculator-grid {
+.calculator {
+  width: 400px;
+}
+
+.calculator-keys {
   display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
+  min-height: 75vh;
   grid-template-columns: repeat(4, 100px);
-  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(4, 100px);
 }
 
-.calculator-grid > button {
+.calculator-keys > button {
   cursor: pointer;
   font-size: 2rem;
   border: 1px solid white;
@@ -27,7 +31,11 @@ body {
   background-color: rgba(255, 255, 255, .75);
 }
 
-.calculator-grid > button:hover {
+.calculator-keys > button:hover {
+  background-color: rgba(255, 255, 255, .90);
+}
+
+.isDepressed {
   background-color: rgba(255, 255, 255, .90);
 }
 
@@ -36,12 +44,12 @@ body {
 }
 
 .output {
-  grid-column: 1/-1;
+  min-height: 100px;
   background-color: rgba(0, 0, 0, .75);
   display: flex;
+  flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
-  flex-direction: column;
   padding: 10px;
   word-wrap: break-word;
   word-break: break-all;
