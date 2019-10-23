@@ -42,10 +42,14 @@ keys.addEventListener("click", e => {
   calculator.dataset.previousKeyType = "operator"
   calculator.dataset.firstValue = displayedNum
   calculator.dataset.operator = action
-}  if (action==="decimal" && !displayedNum.includes('.')) {
-  calculator.dataset.previousKeyType = "number"
-  currentNumber.textContent = displayedNum + '.'
+}  if (action==="decimal") {
+  calculator.dataset.previousKeyType = "decimal"
+  if (previousKeyType === 'operator') {
+  currentNumber.textContent = '0.'
+} else if (!displayedNum.includes('.')) {
+    currentNumber.textContent = displayedNum + '.'
   }
+}
   if (action==="clear") {
     calculator.dataset.previousKeyType = "clear"
     currentNumber.textContent = "0";
