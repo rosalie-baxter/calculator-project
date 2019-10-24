@@ -66,11 +66,20 @@ keys.addEventListener("click", e => {
   }
 }
   if (action==="clear") {
+    calculator.dataset.firstValue = ''
+    calculator.dataset.modValue = ''
+    calculator.dataset.operator = ''
+    calculator.dataset.previousKeyType = ''
     calculator.dataset.previousKeyType = "clear"
-    currentNumber.textContent = "0";
-  }  if (action==="delete") {
+    currentNumber.textContent = 0;
+  }  if (action==="delete" && currentNumber.textContent != 0) {
+    if (currentNumber.textContent.length==1) {
+      currentNumber.textContent="00"
+    }
     calculator.dataset.previousKeyType = "delete"
-    currentNumber.textContent.length--;
+    let number = currentNumber.textContent.split("");
+    let spare = number.pop();
+    currentNumber.textContent = number.join("");
   }if (action==="calculate") {
     let firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
