@@ -30,7 +30,7 @@ keys.addEventListener("click", e => {
 
   if (!action) {
     calculator.dataset.previousKeyType = "number"
-    if (displayedNum === "0"|| previousKeyType === "operator") {
+    if (displayedNum === "0"|| previousKeyType === "operator" || previousKeyType === 'calculate') {
       currentNumber.textContent = keyContent;
     } else {
       currentNumber.textContent = displayedNum + keyContent;
@@ -45,7 +45,8 @@ keys.addEventListener("click", e => {
     const operator = calculator.dataset.operator
     const secondValue = displayedNum
 
-    if (firstValue && operator && previousKeyType!=='operator') {
+    if (firstValue && operator && previousKeyType!=='operator' &&
+    previousKeyType !== 'calculate') {
     const calcValue = calculate(firstValue, operator, secondValue)
     currentNumber.textContent = calcValue
     calculator.dataset.firstValue = calcValue
