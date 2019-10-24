@@ -71,11 +71,21 @@ keys.addEventListener("click", e => {
     calculator.dataset.previousKeyType = "delete"
     currentNumber.textContent.length--;
   }if (action==="calculate") {
-    calculator.dataset.previousKeyType = "calculate"
-    const firstValue = calculator.dataset.firstValue
+    let firstValue = calculator.dataset.firstValue
     const operator = calculator.dataset.operator
-    const secondValue = displayedNum
+    let secondValue = displayedNum
+
+    if (firstValue) {
+      if (previousKeyType === "calculate") {
+        firstValue = displayedNum;
+        secondValue = calculator.dataset.modValue
+        console.log(displayedNum);
+        console.log(firstValue);
+        console.log(secondValue);
+      }
     currentNumber.textContent = calculate(firstValue, operator, secondValue);
+  } calculator.dataset.modValue = secondValue;
+  calculator.dataset.previousKeyType = "calculate"
   }
   }
 })
