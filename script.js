@@ -89,9 +89,6 @@ keys.addEventListener("click", e => {
       if (previousKeyType === "calculate") {
         firstValue = displayedNum;
         secondValue = calculator.dataset.modValue
-        console.log(displayedNum);
-        console.log(firstValue);
-        console.log(secondValue);
       }
     currentNumber.textContent = calculate(firstValue, operator, secondValue);
   } calculator.dataset.modValue = secondValue;
@@ -99,3 +96,22 @@ keys.addEventListener("click", e => {
   }
   }
 })
+
+document.addEventListener('keydown', keyManipulation);
+
+function keyManipulation(e) {
+  if (e.keyCode === 49){
+  ;
+  }
+  if (e.keyCode === 37)
+  {
+    togglePicture(-1);
+  }
+    if (e.keyCode === 32)
+  { if (playing == true) {
+    pauseSlideshow();
+  } else if (playing == false) {
+    playSlideshow();
+  }
+  }
+};
