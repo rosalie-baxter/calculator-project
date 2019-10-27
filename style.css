@@ -11,7 +11,7 @@ body {
 }
 
 .calculator {
-  width: 400px;
+  width: 25rem;
 }
 
 .calculator-keys {
@@ -19,16 +19,16 @@ body {
   justify-content: center;
   align-content: center;
   min-height: 75vh;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: minmax(120px, auto) repeat(4, 100px);
+  grid-template-columns: repeat(4, 4rem);
+  grid-template-rows: minmax(4rem, auto) repeat(4, 4rem);
 }
 
 .calculator-keys > button {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1rem;
   border: 1px solid white;
   outline: none;
-  background-color: rgba(255, 255, 255, .75);
+  background-color: #9ad18b;;
 }
 
 .calculator-keys > button:hover {
@@ -44,20 +44,19 @@ background-color: rgba(255, 255, 255, .90);
 }
 
 .output {
-  min-height: 100px;
+  min-height: 2rem;
+  width: 16rem;
   background-color: rgba(0, 0, 0, .75);
   display: flex;
+  position: relative;
+  top: 2.5rem;
+  left: 4.5rem;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-around;
   padding: 10px;
   word-wrap: break-word;
   word-break: break-all;
-}
-
-.output .previous-operand {
-  color: rgba(255, 255, 255, .75);
-  font-size: 1.5rem;
 }
 
 .output .current-operand {
