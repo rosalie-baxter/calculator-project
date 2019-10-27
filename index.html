@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width-device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> Calculator</title>
-  <link href="style.css" rel="stylesheet">
-  <script src="script.js" defer> </script>
-</head>
-<body>
-  <div class="calculator">
-    <div class="output">
-      <div data-previous-operand class="previous-operand"></div>
-      <div id="display" data-current-operand class="current-operand">0</div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Calculator</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js" defer> </script>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="output">
+        <div id="display" data-current-operand class="current-operand">0</div>
+      </div>
+      <div class="calculator-keys">
+        <button id="clear" data-action="clear" class="span-two"> AC</button>
+        <button data-action="delete">DEL</button>
+        <button id="add" data-action="add" >+</button>
+        <button id="one" data-number>1</button>
+        <button id="two" data-number>2</button>
+        <button id="three" data-number>3</button>
+        <button id="multiply" data-action="multiply">×</button>
+        <button id="four" data-number>4</button>
+        <button id="five" data-number>5</button>
+        <button id="six" data-number>6</button>
+        <button id="divide" data-action="divide">÷</button>
+        <button id="seven" data-number>7</button>
+        <button id="eight" data-number>8</button>
+        <button id="nine"data-number>9</button>
+        <button id="subtract" data-action="subtract">-</button>
+        <button id="decimal" data-action="decimal">.</button>
+        <button id="zero" data-number>0</button>
+        <button id="equals" data-action="calculate" class="span-two">=</button>
+      </div>
     </div>
-    <div class="calculator-keys">
-    <button id="clear" data-action="clear" class="span-two"> AC</button>
-    <button data-action="delete">DEL</button>
-    <button id="add" data-action="add" >+</button>
-    <button id="one" data-number>1</button>
-    <button id="two" data-number>2</button>
-    <button id="three" data-number>3</button>
-    <button id="multiply" data-action="multiply">×</button>
-    <button id="four" data-number>4</button>
-    <button id="five" data-number>5</button>
-    <button id="six" data-number>6</button>
-    <button id="divide" data-action="divide">÷</button>
-    <button id="seven" data-number>7</button>
-    <button id="eight" data-number>8</button>
-    <button id="nine"data-number>9</button>
-    <button id="subtract" data-action="subtract">-</button>
-    <button id="decimal" data-action="decimal">.</button>
-    <button id="zero" data-number>0</button>
-    <button id="equals" data-action="calculate" class="span-two">=</button>
-</div>
-</div>
-</body>
-<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js">
-</script>
+  </body>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </html>
