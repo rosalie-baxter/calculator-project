@@ -7,14 +7,19 @@
 body {
   padding: 0;
   margin: 0;
-  background: linear-gradient(to right, #00AAFF, #00ff6c)
+  background: linear-gradient(to right, #00AAFF, #00ff6c);
 }
 
 .calculator {
   width: 25rem;
+  height: 15rem;
+  position: relative;
 }
 
 .calculator-keys {
+  position:absolute;
+  top: 3.5rem;
+  left: 4.5rem;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -48,7 +53,7 @@ background-color: rgba(255, 255, 255, .90);
   width: 16rem;
   background-color: rgba(0, 0, 0, .75);
   display: flex;
-  position: relative;
+  position: absolute;
   top: 2.5rem;
   left: 4.5rem;
   flex-direction: column;
