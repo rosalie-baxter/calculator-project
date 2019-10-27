@@ -24,20 +24,20 @@ keys.addEventListener("click", e => {
     const keyContent = key.textContent
     const displayedNum = currentNumber.textContent
     const previousKeyType = calculator.dataset.previousKeyType
+    const previousAction = calculator.dataset.previousAction
 
     Array.from(key.parentNode.children)
    .forEach(k => k.classList.remove('is-depressed'))
 
   if (!action) {
     calculator.dataset.previousKeyType = "number"
-    if (displayedNum === "0"|| previousKeyType === "operator" || previousKeyType === 'calculate') {
+    if (displayedNum === "0"|| previousKeyType === "operator" && displayedNum !== "-"|| previousKeyType === 'calculate') {
       currentNumber.textContent = keyContent;
     } else {
       currentNumber.textContent = displayedNum + keyContent;
     }
   } if (
     action ==="add" ||
-    action === "subtract" ||
     action === "multiply" ||
     action === "divide"
   ) {
@@ -47,15 +47,46 @@ keys.addEventListener("click", e => {
 
     if (firstValue && operator && previousKeyType!=='operator' &&
     previousKeyType !== 'calculate') {
+
     const calcValue = calculate(firstValue, operator, secondValue)
     currentNumber.textContent = calcValue
     calculator.dataset.firstValue = calcValue
+
   } else {
     calculator.dataset.firstValue = displayedNum
 }
   key.classList.add("is-depressed")
   calculator.dataset.previousKeyType = "operator"
   calculator.dataset.operator = action
+
+  if (action ==="add") {
+  calculator.dataset.previousAction = "add"
+} if (action ==="multiply") {
+  calculator.dataset.previousAction = "multiply"
+} if (action ==="divide") {
+    calculator.dataset.previousAction = "divide"
+    }
+}
+if (action === "subtract") {
+
+  let firstValue = calculator.dataset.firstValue
+  let operator = calculator.dataset.operator
+  let secondValue = displayedNum
+  if (previousKeyType=="operator" && firstValue && operator) {
+    const operator = calculator.dataset.previousAction
+    currentNumber.textContent = "-"
+} else if (firstValue && operator && previousKeyType!==operator && previousKeyType !== "calculate") {
+    const calcValue = calculate(firstValue, operator, secondValue)
+    currentNumber.textContent = calcValue
+    calculator.dataset.firstValue = calcValue
+    calculator.dataset.operator = action
+  } else {
+    calculator.dataset.firstValue = displayedNum
+    calculator.dataset.operator = action
+}
+  key.classList.add("is-depressed")
+  calculator.dataset.previousKeyType = "operator"
+  calculator.dataset.previousAction = "subtract"
 }
  if (action==="decimal") {
   calculator.dataset.previousKeyType = "decimal"
@@ -70,6 +101,7 @@ keys.addEventListener("click", e => {
     calculator.dataset.modValue = ''
     calculator.dataset.operator = ''
     calculator.dataset.previousKeyType = ''
+    calculator.dataset.previousAction = ''
     calculator.dataset.previousKeyType = "clear"
     currentNumber.textContent = 0;
   }  if (action==="delete" && currentNumber.textContent != 0) {
